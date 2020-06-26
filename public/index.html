@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">   
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#317EFB">
@@ -43,7 +47,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script>if (window.indexedDB) {
-    var request = indexedDB.open("budget", 1);
+    var request = indexedDB.open("mongodb://localhost/budget", 1);
   
     request.onerror = function(e) {
       console.log(e);
