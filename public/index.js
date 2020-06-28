@@ -1,7 +1,23 @@
 let transactions = [];
 let myChart;
+let deferredPromt;
+const btnAdd = document.getElementById('btnAdd');
 
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPromt = e;
+  btnAdd.style.display = 'block';
+});
 
+btnAdd.addEventListener('click', (e) => {
+  deferredPromt.prompt();
+  deferredPromt.userChoice.then((choiceResult) => {
+    if (choiceResult.outcome === 'accepted') {
+      alert("accepted prompt")
+    }
+    deferredPromt = null;
+  })
+})
 
 fetch("/api/transaction")
   .then(response => {
